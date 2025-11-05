@@ -1,0 +1,58 @@
+/* FactVerse bi Theme Default Variables */
+
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:color';
+
+@use '../mixins/function.scss' as * ;
+
+//types
+
+$types: primary, success, warning, danger, error, info;
+
+// Color
+$colors: () !default;
+$colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': (
+      'base': #409eff,
+    ),
+    'success': (
+      'base': #67c23a,
+    ),
+    'warning': (
+      'base': #e6a23c,
+    ),
+    'danger': (
+      'base': #f56c6c,
+    ),
+    'error': (
+      'base': #f56c6c,
+    ),
+    'info': (
+      'base': #909399,
+    ),
+  ),
+  $colors
+);
+
+// Background
+$bg-color: () !default;
+$image: map.merge(
+  (
+    'editor': #eeeeee,
+    'compoment': #dddddd,
+  )
+);
+
+// Image
+$image: () !default;
+$image: map.merge(
+  (
+    'bg-color': getCssVar('bg-color', 'compoment'),
+    'border': 1px solid #dddddd
+  ),
+  $image
+);

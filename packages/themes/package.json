@@ -1,0 +1,7 @@
+{
+  "name": "@factverse-bi/themes",
+  "version": "1.0.0",
+  "description": "FactVerse BI themes",
+  "main": "index.ts",
+  "license": "ISC"
+}

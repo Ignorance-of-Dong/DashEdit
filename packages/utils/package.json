@@ -1,0 +1,10 @@
+{
+  "name": "@factverse-bi/utils",
+  "private": true,
+  "description": "FactVerse BI utils",
+  "license": "MIT",
+  "main": "index.ts",
+  "peerDependencies": {
+    "vue": "^3.4.19"
+  }
+}

@@ -1,0 +1,26 @@
+@use '../mixins/mixins' as *;
+@use '../common/var' as *;
+
+
+
+@include b(image) {
+  width: 300px;
+  height: 200px;
+  background-color: getCssVar('image', 'bg-color');
+  border: getCssVar('image', 'border');
+
+  @include e(header) {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+  }
+  @include e(content) {
+    padding: 20px;
+    text-align: center;
+  }
+  @include e(footer) {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+  }
+}

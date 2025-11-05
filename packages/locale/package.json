@@ -1,0 +1,7 @@
+{
+  "name": "@factverse-bi/locale",
+  "version": "1.0.0",
+  "description": "FactVerse BI locale",
+  "main": "index.ts",
+  "license": "ISC"
+}

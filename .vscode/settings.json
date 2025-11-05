@@ -1,0 +1,77 @@
+{
+  // 多语言
+  "i18n-ally.localesPaths": [
+    "packages/factverse-i18n/checklist",
+    "packages/factverse-i18n/common",
+    "packages/factverse-i18n/console",
+    "packages/factverse-i18n/dataFusion",
+    "packages/factverse-i18n/event",
+    "packages/factverse-i18n/express",
+    "packages/factverse-i18n/platform",
+    "packages/factverse-i18n/factVerseAI",
+    "packages/factverse-i18n/projectCheck",
+    "packages/factverse-i18n/study",
+    "packages/factverse-i18n/twin",
+  ],
+  "fileheader.customMade": {
+    "Date": "Do not edit",
+    "LastEditTime": "Do not Edit",
+    "Description": ""
+  },
+  "fileheader.configObj": {
+    "prohibitAutoAdd": [
+      "json",
+      "md"
+    ], // 禁用文件格式
+    "folderBlacklist": [], // 禁用文件夹
+    "createHeader": true, // 新建文件自动添加，默认为true
+    "autoAdd": true, // 自动添加文件头注释
+    "CheckFileChange": true // 默认关闭 只有 LastEditors和LastEditTime 变更，不会产生新的更改
+  },
+  "editor.codeLens": false,
+  "editor.rulers": [],
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.minimap.maxColumn": 100,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.renderWhitespace": "all",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "prettier.arrowParens": "always",
+  "prettier.trailingComma": "es5",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.pyc": "default"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "commentTranslate.source": "DarkCWK.youdao-youdao",
+  "i18n-ally.keystyle": "nested",
+}

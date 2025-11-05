@@ -1,0 +1,10 @@
+{
+  "name": "@factverse-bi/hooks",
+  "version": "1.0.0",
+  "description": "FactVerse BI composables",
+  "main": "index.ts",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.4.19"
+  }
+}

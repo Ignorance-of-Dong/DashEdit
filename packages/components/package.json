@@ -1,0 +1,10 @@
+{
+  "name": "@factverse-bi/components",
+  "version": "1.0.0",
+  "description": "all components are settled here",
+  "main": "index.js",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.4.19"
+  }
+}

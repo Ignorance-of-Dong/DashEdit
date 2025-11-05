@@ -1,0 +1,10 @@
+[submodule "packages/factverrse-ui"]
+	path = packages/factverrse-ui
+	url = git@gitlab.int.datamesh.com:datamesh-factverse/factverse-ui.git
+[submodule "packages/factverse-common"]
+	path = packages/factverse-common
+	url = git@gitlab.int.datamesh.com:datamesh-factverse/factverse-common.git
+[submodule "packages/factverse-i18n"]
+	path = packages/factverse-i18n
+	url = git@gitlab.int.datamesh.com:datamesh-factverse/localization.git
+	branch = master

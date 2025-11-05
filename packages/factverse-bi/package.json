@@ -1,0 +1,23 @@
+{
+  "name": "factverse-bi",
+  "version": "1.0.0",
+  "description": "A FactVerseBI",
+  "main": "index.ts",
+  "license": "ISC",
+  "exports": {
+    ".": "./index.ts",
+    "../resolver": "../resolver/index.ts",
+    "../utils": "../utils/index.ts",
+    "./components": "../components/index.ts",
+    "./components/*": "../components/*",
+    "./hooks": "../hooks/index.ts",
+    "./hooks/*": "../hooks/*",
+    "./locale": "../locale/index.ts",
+    "./locale/*": "../locale/*",
+    "./themes": "../themes/index.ts",
+    "./themes/*": "../themes/*"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.19"
+  }
+}
