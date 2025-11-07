@@ -1,0 +1,18 @@
+@use '../mixins/mixins' as *;
+@use '../common/var' as *;
+
+@include b(sandbox-editor) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 99999;
+  overflow: hidden;
+  
+  @include e(canvas-item) {
+    position: absolute;
+  }
+}
+

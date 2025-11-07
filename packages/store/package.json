@@ -1,0 +1,11 @@
+{
+  "name": "@factverse-bi/store",
+  "version": "1.0.0",
+  "description": "FactVerse BI store",
+  "main": "index.ts",
+  "license": "ISC",
+  "peerDependencies": {
+    "vue": "^3.4.19",
+    "pinia": "^2.0.26"
+  }
+}
