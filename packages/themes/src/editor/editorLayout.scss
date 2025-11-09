@@ -1,0 +1,25 @@
+@use "../mixins/mixins" as *;
+
+/* ==================== 主题变量 ==================== */
+$drag-overlay-opacity: 0.3;
+$header-height: 64px;
+
+/* ==================== 布局样式 ==================== */
+@include b(editor-layout) {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+
+  @include e(container) {
+    width: 100%;
+    flex: 1;
+
+    @include m(preview) {
+      opacity: 1;
+    }
+  }
+}
+

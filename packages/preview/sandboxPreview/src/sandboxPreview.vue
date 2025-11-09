@@ -2,13 +2,13 @@
  * @Author: zhangzheng
  * @Date: 2025-10-28 10:43:51
  * @LastEditors: zhangzheng
- * @LastEditTime: 2025-11-07 18:02:53
+ * @LastEditTime: 2025-11-05 18:22:13
  * @Description: 
 -->
 <template>
   <div :class="[ns.b()]" ref="sandboxPreviewPanelRef" :key="refreshTrigger">
     <div
-      :class="ns.e('canvas-item')"
+      :class="ns.e('area-item')"
       v-for="item in editorDataStore.sandboxCanvas"
       :key="item.id"
       :id="item.id"
@@ -17,14 +17,15 @@
       :style="getPreviewAreaItemStyle(item)"
     >
       <div
-        :class="ns.e('component-wrapper')"
+        class="component-wrapper"
         v-for="componentItem in item.components"
         :key="item.id"
         :style="getShapeItemStyleForComponent(componentItem)"
       >
         <component
           :is="componentItem.component"
-          :class="[componentItem.component, ns.e('component')]"
+          :class="componentItem.component"
+          class="component"
           :style="getComponentStyle(componentItem.style)"
           :prop-value="componentItem.propValue"
           :type="componentItem.type"
@@ -40,12 +41,13 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick, reactive, computed } from "vue";
-import { useNamespace } from "@factverse-bi/hooks";
 import { useEditorDataStore } from "@factverse-bi/store/editor";
+import { useNamespace } from "@factverse-bi/hooks";
 import { clone } from "ramda";
 import { useThrottleFn } from "@vueuse/core";
 
-const ns = useNamespace("sandbox-editor");
+const ns = useNamespace("sandbox-preview");
+
 const editorDataStore = useEditorDataStore();
 const sandboxPreviewPanelRef = ref<any>();
 
@@ -149,6 +151,7 @@ const getComponentStyle = (style: any) => {
 const triggerRecalculation = useThrottleFn(() => {
   if (!sandboxPreviewPanelRef.value) return;
 
+  console.log("[ 1 ] >", 1);
   refreshTrigger.value++;
 
   const containerHeight = sandboxPreviewPanelRef.value.offsetHeight;

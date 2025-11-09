@@ -1,0 +1,130 @@
+@use "../mixins/mixins" as *;
+
+/* ==================== 主题变量 ==================== */
+$editor-bg-color: rgba(51, 51, 51, 1);
+$divider-color: #000;
+$drag-overlay-opacity: 0.3;
+$header-height: 64px;
+$divider-height: 1px;
+
+/* ==================== 主布局 ==================== */
+@include b(dashboard-editor) {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @include e(container) {
+    height: calc(100vh - #{$header-height} - #{$divider-height});
+    flex: 1;
+
+    @include m(preview) {
+      opacity: 1;
+    }
+  }
+
+  @include e(center) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    position: relative;
+    background-color: $editor-bg-color;
+    overflow: hidden;
+  }
+
+  /* ==================== 画布区域 ==================== */
+  @include e(canvas-content) {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+
+    @include m(preview) {
+      transform: scale(1);
+    }
+
+    /* 自定义滚动条 */
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  @include e(canvas-inner) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  @include e(canvas-core-container) {
+    position: relative;
+  }
+
+  @include e(canvas-core) {
+    width: 100%;
+    height: 100%;
+
+    @include m(main) {
+      position: relative;
+    }
+  }
+
+  /* ==================== 分割线 ==================== */
+  @include e(divider) {
+    width: 100%;
+    height: $divider-height;
+    background: $divider-color;
+    flex-shrink: 0;
+  }
+
+  /* ==================== 拖拽遮罩 ==================== */
+  @include e(drag-overlay) {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.3;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ==================== 响应式适配 ==================== */
+  @media (max-width: 768px) {
+    font-size: 14px;
+
+    @include e(center) {
+      padding: 4px;
+    }
+  }
+
+  @include e(preview-panel) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 99999;
+  }
+}
+

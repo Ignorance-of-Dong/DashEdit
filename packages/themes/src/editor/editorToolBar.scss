@@ -1,0 +1,93 @@
+@use "../mixins/mixins" as *;
+
+/* ==================== 工具栏主容器 ==================== */
+@include b(editor-toolbar) {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  height: 45px;
+  background-color: #1a1a1a;
+  border-top: 1px solid #363636;
+  color: #fff;
+  z-index: 2;
+  transition: 0.5s;
+
+  /* ==================== 缩放区域 ==================== */
+  @include e(scale-area) {
+    display: flex;
+    align-items: center;
+
+    :deep(.ed-input-number__decrease) {
+      --ed-input-number-controls-height: 12px;
+    }
+  }
+
+  /* ==================== 缩放分隔符 ==================== */
+  @include e(divider-scale) {
+    height: 18px;
+    border-color: #ffffff26;
+  }
+
+  /* ==================== 缩放输入框 ==================== */
+  @include e(scale-input) {
+    height: 24px;
+    line-height: 24px;
+    width: 80px;
+    margin-right: 16px;
+
+    :deep(.ed-input__wrapper) {
+      position: relative;
+      padding: 0 38px 0 8px;
+      &::after {
+        position: absolute;
+        content: "%";
+        right: 35px;
+        top: 1px;
+        height: 24px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  /* ==================== 自定义分隔符 ==================== */
+  @include e(divider) {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0 16px;
+  }
+
+  /* ==================== 悬停图标 ==================== */
+  @include e(icon) {
+    cursor: pointer;
+    height: 24px !important;
+    width: 24px !important;
+    font-size: 16px !important;
+    border-radius: 4px;
+    color: #646a73 !important;
+
+    &[aria-expanded="true"] {
+      background: rgba(31, 35, 41, 1);
+    }
+
+    &:hover {
+      background: rgba(31, 35, 41, 0.5);
+    }
+
+    &:active {
+      background: rgba(31, 35, 41, 1);
+    }
+  }
+}
+
+/* ==================== 深度样式 - Element Plus 组件 ==================== */
+:deep(.ed-input--dark .ed-input__wrapper),
+:deep(
+    .ed-input-number--dark:not(.is-disabled)
+      .ed-input-number__decrease:not(.is-disabled)
+  ),
+:deep(
+    .ed-input-number--dark:not(.is-disabled)
+      .ed-input-number__increase:not(.is-disabled)
+  ) {
+  background-color: #1a1a1a;
+}
+

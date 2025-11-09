@@ -1,0 +1,129 @@
+@use "../mixins/mixins" as *;
+
+/* ==================== 标尺主题色彩变量 ==================== */
+$ruler-bg-color: #2c2c2c;
+$ruler-line-color: #ac2a2a;
+$ruler-tick-color: #e38a8a;
+$ruler-text-color: #fff;
+$ruler-shadow-color: rgba(10, 123, 224, 0.3);
+$ruler-height: 30px;
+
+/* ==================== 标尺主体 ==================== */
+@include b(editor-ruler) {
+  position: relative;
+  height: $ruler-height;
+  display: flex;
+  align-items: center;
+  background-color: $ruler-bg-color;
+
+  /* ==================== 标尺外层容器 ==================== */
+  @include e(outer) {
+    overflow-x: auto;
+    background-color: $ruler-bg-color;
+
+    // 隐藏滚动条，保持界面简洁
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    // 垂直标尺样式
+    @include m(vertical) {
+      position: absolute;
+      left: $ruler-height;
+      top: $ruler-height;
+      transform-origin: top left;
+      transform: rotate(90deg);
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index: 2;
+
+      // 垂直标尺内部元素调整
+      .ruler {
+        .ruler-line {
+          top: 0;
+        }
+
+        .ruler-tick {
+          top: 0;
+
+          .tick-label {
+            color: $ruler-text-color;
+            transform: rotate(180deg); // 垂直标尺文字需要旋转
+          }
+        }
+      }
+    }
+  }
+
+  /* ==================== 标尺阴影层 ==================== */
+  @include e(shadow) {
+    position: absolute;
+    height: $ruler-height;
+    overflow: hidden;
+    background-color: $ruler-bg-color;
+  }
+
+  /* ==================== 标尺滚动容器 ==================== */
+  @include e(scroll) {
+    min-width: 1600px; // 最小宽度确保内容不会过窄
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ==================== 标尺基准线 ==================== */
+  @include e(line) {
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background-color: $ruler-line-color;
+  }
+
+  /* ==================== 标尺刻度 ==================== */
+  @include e(tick) {
+    position: absolute;
+    bottom: 1px;
+    height: 3px;
+    width: 1px;
+    background-color: $ruler-tick-color;
+
+    // 长刻度样式
+    @include m(long) {
+      height: 15px;
+    }
+  }
+
+  /* ==================== 刻度标签 ==================== */
+  @include e(tick-label) {
+    position: absolute;
+    bottom: 2px;
+    font-size: 8px;
+    left: 3px;
+    white-space: nowrap;
+    color: $ruler-text-color;
+    user-select: none; // 防止文字被选中
+    pointer-events: none; // 防止鼠标事件干扰
+  }
+
+  /* ==================== 当前组件阴影 ==================== */
+  @include e(cur-shadow) {
+    background: $ruler-shadow-color;
+    height: $ruler-height;
+    position: absolute;
+    border-radius: 2px;
+    transition: all 0.2s ease-in-out; // 平滑过渡动画
+    pointer-events: none; // 不阻挡鼠标事件
+  }
+
+  /* ==================== 响应式适配 ==================== */
+  @media (max-width: 768px) {
+    @include e(tick-label) {
+      font-size: 6px; // 小屏幕下字体更小
+    }
+
+    @include e(scroll) {
+      min-width: 800px; // 小屏幕下减少最小宽度
+    }
+  }
+}
+
